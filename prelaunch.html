@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Over It | Coming Soon</title>
+  <meta name="description" content="The 30-Day Challenge for burnt out parents. Get notified when we launch.">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --forest: #1a3d2e;
+      --leaf: #4a8c5c;
+      --mint: #7cb891;
+      --cream: #faf8f3;
+      --sand: #f0ebe0;
+      --charcoal: #2d2d2d;
+      --warm-white: #fffef9;
+
+      --font-display: 'Fraunces', Georgia, serif;
+      --font-body: 'Source Sans 3', -apple-system, sans-serif;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: var(--font-body);
+      font-size: 18px;
+      line-height: 1.7;
+      color: var(--charcoal);
+      background: var(--cream);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    h1, h2, h3 {
+      font-family: var(--font-display);
+      font-weight: 500;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+    }
+
+    .main {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+
+    .container {
+      max-width: 540px;
+      text-align: center;
+    }
+
+    .badge {
+      display: inline-block;
+      background: var(--forest);
+      color: var(--cream);
+      padding: 0.5rem 1rem;
+      border-radius: 50px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+    }
+
+    h1 {
+      font-size: clamp(2.2rem, 6vw, 3.5rem);
+      color: var(--forest);
+      margin-bottom: 1rem;
+      font-weight: 400;
+    }
+
+    h1 em {
+      font-style: italic;
+      color: var(--leaf);
+    }
+
+    .subhead {
+      font-size: 1.15rem;
+      color: #555;
+      margin-bottom: 2.5rem;
+      max-width: 420px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .form-wrapper {
+      background: var(--warm-white);
+      border-radius: 16px;
+      padding: 2rem;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+      margin-bottom: 2rem;
+    }
+
+    .form-title {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      color: var(--forest);
+      margin-bottom: 1rem;
+    }
+
+    .email-form {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .email-input {
+      padding: 1rem 1.25rem;
+      font-size: 1rem;
+      font-family: var(--font-body);
+      border: 2px solid var(--sand);
+      border-radius: 12px;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .email-input:focus {
+      border-color: var(--leaf);
+    }
+
+    .email-input::placeholder {
+      color: #999;
+    }
+
+    .btn {
+      padding: 1rem 2rem;
+      font-size: 1rem;
+      font-family: var(--font-body);
+      font-weight: 600;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all 0.2s;
+      background: var(--forest);
+      color: var(--cream);
+    }
+
+    .btn:hover {
+      background: var(--leaf);
+      transform: translateY(-2px);
+    }
+
+    .privacy-note {
+      font-size: 0.8rem;
+      color: #888;
+      margin-top: 0.75rem;
+    }
+
+    .privacy-note a {
+      color: var(--leaf);
+      text-decoration: none;
+    }
+
+    .privacy-note a:hover {
+      text-decoration: underline;
+    }
+
+    .al-intro {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      padding: 1.25rem;
+      background: var(--sand);
+      border-radius: 12px;
+    }
+
+    .al-photo {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: var(--mint);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      flex-shrink: 0;
+    }
+
+    .al-text {
+      text-align: left;
+      font-size: 0.95rem;
+      color: var(--charcoal);
+    }
+
+    .al-text strong {
+      color: var(--forest);
+    }
+
+    .footer {
+      text-align: center;
+      padding: 1.5rem;
+      font-size: 0.85rem;
+      color: #888;
+    }
+
+    .footer a {
+      color: var(--leaf);
+      text-decoration: none;
+      margin: 0 0.5rem;
+    }
+
+    /* Success state */
+    .form-wrapper.success {
+      background: var(--mint);
+    }
+
+    .success-message {
+      display: none;
+      color: var(--forest);
+      font-size: 1.1rem;
+    }
+
+    .form-wrapper.success .email-form {
+      display: none;
+    }
+
+    .form-wrapper.success .form-title {
+      display: none;
+    }
+
+    .form-wrapper.success .success-message {
+      display: block;
+    }
+
+    .form-wrapper.success .privacy-note {
+      display: none;
+    }
+
+    @media (max-width: 480px) {
+      .main {
+        padding: 1.5rem;
+      }
+
+      .form-wrapper {
+        padding: 1.5rem;
+      }
+
+      .al-intro {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .al-text {
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="main">
+    <div class="container">
+      <div class="badge">Launching Feb 25</div>
+
+      <h1>Burnt out?<br><em>Get over it.</em></h1>
+
+      <p class="subhead">A 30-day challenge that helps busy parents stop feeling like garbage—without overhauling their entire life.</p>
+
+      <div class="form-wrapper" id="formWrapper">
+        <p class="form-title">Get notified when we launch</p>
+
+        <!--
+          TODO: Wire up to your email service
+          Options:
+          - Mailchimp: Change action to your Mailchimp form URL
+          - ConvertKit: Change action to your ConvertKit form URL
+          - Google Sheet: Use a service like Zapier or Sheet Monkey
+        -->
+        <form class="email-form" id="emailForm" action="#" method="POST">
+          <input
+            type="email"
+            name="email"
+            class="email-input"
+            placeholder="Your email address"
+            required
+            autocomplete="email"
+          >
+          <button type="submit" class="btn">Notify Me</button>
+        </form>
+
+        <p class="success-message">You're in! We'll let you know when we launch.</p>
+
+        <p class="privacy-note">No spam. Unsubscribe anytime. <a href="privacy.html">Privacy Policy</a></p>
+      </div>
+
+      <div class="al-intro">
+        <div class="al-photo">👋</div>
+        <p class="al-text">
+          <strong>Hey, I'm Al.</strong> 15+ years helping people build sustainable health habits. This challenge is everything I've learned—distilled into 30 days.
+        </p>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <a href="privacy.html">Privacy</a>
+    <a href="terms.html">Terms</a>
+    <p style="margin-top: 0.5rem;">&copy; 2025 Grow Your Muscles Studio</p>
+  </footer>
+
+  <script type="module">
+    // Firebase imports
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/12.8.0/firebase-app.js";
+    import { getFirestore, collection, addDoc, query, where, getDocs, serverTimestamp } from "https://www.gstatic.com/firebasejs/12.8.0/firebase-firestore.js";
+
+    // Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyCMXhgjBd6XoO45vYd_AAPgkmlxVrluKl8",
+      authDomain: "al-fit-landing.firebaseapp.com",
+      projectId: "al-fit-landing",
+      storageBucket: "al-fit-landing.firebasestorage.app",
+      messagingSenderId: "1058643358712",
+      appId: "1:1058643358712:web:46aedb0922a55187d21c0d"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+
+    // Form handling
+    const form = document.getElementById('emailForm');
+    const formWrapper = document.getElementById('formWrapper');
+    const submitBtn = form.querySelector('button[type="submit"]');
+    const emailInput = form.querySelector('input[type="email"]');
+
+    form.addEventListener('submit', async function(e) {
+      e.preventDefault();
+
+      const email = emailInput.value.trim().toLowerCase();
+
+      // Basic email validation
+      if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        alert('Please enter a valid email address.');
+        return;
+      }
+
+      // Disable button while processing
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Joining...';
+
+      try {
+        // Check for duplicate email
+        const signupsRef = collection(db, 'signups');
+        const q = query(signupsRef, where('email', '==', email));
+        const querySnapshot = await getDocs(q);
+
+        if (!querySnapshot.empty) {
+          // Email already exists
+          formWrapper.classList.add('success');
+          return;
+        }
+
+        // Save new signup
+        await addDoc(signupsRef, {
+          email: email,
+          timestamp: serverTimestamp(),
+          userAgent: navigator.userAgent
+        });
+
+        // Show success state
+        formWrapper.classList.add('success');
+
+      } catch (error) {
+        console.error('Error saving email:', error);
+        alert('Something went wrong. Please try again.');
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Notify Me';
+      }
+    });
+  </script>
+</body>
+</html>
