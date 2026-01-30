@@ -54,7 +54,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 2rem;
+      padding: 1rem 1.5rem;
     }
 
     .container {
@@ -66,19 +66,19 @@
       display: inline-block;
       background: var(--forest);
       color: var(--cream);
-      padding: 0.5rem 1rem;
+      padding: 0.4rem 0.9rem;
       border-radius: 50px;
-      font-size: 0.85rem;
+      font-size: 0.8rem;
       font-weight: 500;
       letter-spacing: 0.05em;
       text-transform: uppercase;
-      margin-bottom: 1.5rem;
+      margin-bottom: 0.75rem;
     }
 
     h1 {
-      font-size: clamp(2.2rem, 6vw, 3.5rem);
+      font-size: clamp(2rem, 5.5vw, 3.2rem);
       color: var(--forest);
-      margin-bottom: 1rem;
+      margin-bottom: 0.75rem;
       font-weight: 400;
     }
 
@@ -88,27 +88,28 @@
     }
 
     .subhead {
-      font-size: 1.15rem;
+      font-size: 1.1rem;
       color: #555;
-      margin-bottom: 2.5rem;
+      margin-bottom: 1.5rem;
       max-width: 420px;
       margin-left: auto;
       margin-right: auto;
+      line-height: 1.5;
     }
 
     .form-wrapper {
       background: var(--warm-white);
-      border-radius: 16px;
-      padding: 2rem;
+      border-radius: 12px;
+      padding: 1.25rem;
       box-shadow: 0 4px 24px rgba(0,0,0,0.06);
-      margin-bottom: 2rem;
+      margin-bottom: 1rem;
     }
 
     .form-title {
       font-family: var(--font-display);
       font-size: 1.1rem;
       color: var(--forest);
-      margin-bottom: 1rem;
+      margin-bottom: 0.75rem;
     }
 
     .email-form {
@@ -118,11 +119,11 @@
     }
 
     .email-input {
-      padding: 1rem 1.25rem;
+      padding: 0.85rem 1.1rem;
       font-size: 1rem;
       font-family: var(--font-body);
       border: 2px solid var(--sand);
-      border-radius: 12px;
+      border-radius: 10px;
       outline: none;
       transition: border-color 0.2s;
     }
@@ -136,12 +137,12 @@
     }
 
     .btn {
-      padding: 1rem 2rem;
+      padding: 0.85rem 1.5rem;
       font-size: 1rem;
       font-family: var(--font-body);
       font-weight: 600;
       border: none;
-      border-radius: 12px;
+      border-radius: 10px;
       cursor: pointer;
       transition: all 0.2s;
       background: var(--forest);
@@ -170,30 +171,29 @@
 
     .al-intro {
       display: flex;
+      flex-direction: column;
       align-items: center;
-      justify-content: center;
       gap: 1rem;
-      padding: 1.25rem;
+      padding: 1.5rem;
       background: var(--sand);
       border-radius: 12px;
+      text-align: center;
     }
 
     .al-photo {
-      width: 56px;
-      height: 56px;
+      width: 140px;
+      height: 140px;
       border-radius: 50%;
-      background: var(--mint);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.5rem;
-      flex-shrink: 0;
+      object-fit: cover;
+      border: 4px solid var(--mint);
     }
 
     .al-text {
-      text-align: left;
-      font-size: 0.95rem;
+      text-align: center;
+      font-size: 1.05rem;
       color: var(--charcoal);
+      max-width: 400px;
+      line-height: 1.5;
     }
 
     .al-text strong {
@@ -249,14 +249,6 @@
         padding: 1.5rem;
       }
 
-      .al-intro {
-        flex-direction: column;
-        text-align: center;
-      }
-
-      .al-text {
-        text-align: center;
-      }
     }
   </style>
 </head>
@@ -297,7 +289,7 @@
       </div>
 
       <div class="al-intro">
-        <div class="al-photo">👋</div>
+        <img src="picture.png" alt="Al" class="al-photo">
         <p class="al-text">
           <strong>Hey, I'm Al.</strong> 15+ years helping people build sustainable health habits. This challenge is everything I've learned—distilled into 30 days.
         </p>
